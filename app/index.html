@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Restafari Example</title>
+    <script src="/chat/client/liveoak.js" type="text/javascript"></script>
+    <script src="/chat/app/jquery.js" type="text/javascript"></script>
+    <script src="/chat/app/chat.js" type="text/javascript"></script>
+
+    <style> 
+      body {
+        font-family: helvetica;
+      }
+      #messages {
+        max-height: 10em;
+        overflow: scroll;
+      }
+      .message {
+        clear: both;
+      }
+      .message .name {
+        width: 12em;
+        float: left;
+      }
+    </style> 
+  </head>
+
+  <body>
+    <h1>Chat Example</h1>
+
+    <div id="input">
+      <form>
+        <div>
+          <label>Your name</label>
+          <input type="text" name="name" id="name-field"/>
+        </div>
+        <div id="messages">
+        </div>
+
+        <div>
+          <label>Your message</label>
+          <input type="text" name="text" size="80" id="text-field"/>
+          <input type="submit" value="Send"/>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
