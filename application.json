@@ -22,7 +22,7 @@
         host: 'localhost',
         port: 27017
       }
-    },
+    }
 
 /*  push: {
     type: 'ups',
