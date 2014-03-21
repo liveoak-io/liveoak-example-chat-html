@@ -12,12 +12,12 @@ $( function() {
   }
 
   liveoak.connect( function() {
-    liveoak.create( '/chat/storage', { id: 'chat' }, {
+    liveoak.create( '/chat-html/storage', { id: 'chat' }, {
       success: function(data) {
-        liveoak.subscribe( '/chat/storage/chat/*', function(data) {
+        liveoak.subscribe( '/chat-html/storage/chat/*', function(data) {
           add_message( data );
         } );
-        liveoak.read( '/chat/storage/chat?expand=members', {
+        liveoak.read( '/chat-html/storage/chat?expand=members', {
           success: function(data) {
             $(data._members).each( function(i, e) {
               add_message( e );
@@ -37,7 +37,7 @@ $( function() {
 
     $('#text-field').val( '' );
 
-    liveoak.create( '/chat/storage/chat', 
+    liveoak.create( '/chat-html/storage/chat',
                     { name: name, text: text },
                     { success: function(data) { 
                         console.log( "sent" ); 
