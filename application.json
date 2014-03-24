@@ -19,8 +19,12 @@
       type: 'mongo',
       config: {
         db: 'chat-demo',
-        host: 'localhost',
-        port: 27017
+        servers: [
+          {
+            host: 'localhost',
+            port: 27017
+          }
+        ]
       }
     }
 
