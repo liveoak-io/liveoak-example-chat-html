@@ -1,7 +1,7 @@
 
 
 $( function() {
-  var liveoak = new LiveOak( { host: "localhost", port: 8080 } );
+  var liveoak = new LiveOak( { host: document.location.hostname, port: document.location.port } );
 
   function add_message(data) {
     $( '#messages' ).append( 
