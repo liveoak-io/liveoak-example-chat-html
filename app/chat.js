@@ -22,8 +22,10 @@ $( function() {
   }
 
   function get_id(data) {
-// Strip out everything before ':'
-    return data.id.substring(data.id.indexOf(':') + 1);
+// Parse "12345" from string like: ObjectId("12345")
+    var msgId = data.id.substring(data.id.indexOf('"') + 1);
+    msgId = msgId.substring(0, msgId.indexOf('"'));
+    return msgId;
   }
 
   liveoak.connect( function() {
