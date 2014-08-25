@@ -40,9 +40,9 @@ $( function() {
             remove_message( data );
           }
         } );
-        liveoak.read( '/chat-html/storage/chat?expand=members', {
+        liveoak.read( '/chat-html/storage/chat?fields=*(*)', {
           success: function(data) {
-            $(data._members).each( function(i, e) {
+            $(data.members).each( function(i, e) {
               add_message( e );
             } );
           }
