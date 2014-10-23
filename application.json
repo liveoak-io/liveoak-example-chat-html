@@ -19,12 +19,10 @@
       "type" : "mongo",
       "config" : {
         "db" : "chat-demo",
-        "servers" : [
-          {
+        "servers" : [ {
             "host" : "localhost",
             "port" : 27017
-          }
-        ]
+        } ]
       }
     }
   }
