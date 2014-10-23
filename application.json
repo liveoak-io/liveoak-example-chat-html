@@ -1,40 +1,31 @@
 {
-  html-app: '/app/index.html',
-  resources: {
-    app: {
-      type: 'filesystem',
-      config: {
-        directory: "${application.dir}/app/"
+  "html-app": "/app/index.html",
+  "resources": {
+    "app": {
+      "type": "filesystem",
+      "config": {
+        "directory": "${application.dir}/app/"
       }
     },
 
-    client: {
-      type: 'aggregating-filesystem',
-      config: {
-        directory: "${io.liveoak.js.dir}"
+    "client": {
+      "type": "aggregating-filesystem",
+      "config": {
+        "directory": "${io.liveoak.js.dir}"
       }
     },
 
-    storage: {
-      type: 'mongo',
-      config: {
-        db: 'chat-demo',
-        servers: [
+    "storage": {
+      "type": "mongo",
+      "config": {
+        "db": "chat-demo",
+        "servers": [
           {
-            host: 'localhost',
-            port: 27017
+            "host": "localhost",
+            "port": 27017
           }
         ]
       }
     }
-
-/*  push: {
-    type: 'ups',
-    config: {
-      upsServerURL: 'insert the UPS Server URL here',
-      applicationId: 'insert the Application ID here',
-      masterSecret: 'insert the Master Secret here'
-      }
-    } */
   }
 }
