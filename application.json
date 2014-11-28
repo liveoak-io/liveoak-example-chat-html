@@ -19,11 +19,7 @@
     "storage" : {
       "type" : "mongo",
       "config" : {
-        "db" : "chat-demo",
-        "servers" : [ {
-            "host" : "localhost",
-            "port" : 27017
-        } ]
+        "db" : "chat-demo"
       }
     }
   }
