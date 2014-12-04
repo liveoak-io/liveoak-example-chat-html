@@ -1,0 +1,103 @@
+/*!
+ * Based on Bootstrap v3.3.1
+ */
+
+// Core
+@import "../bootstrap/less/bootstrap.less";
+
+// Font
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic);
+
+@font-family-sans-serif: 'Roboto', sans-serif;
+
+@font-weight-regular: 400;
+@font-weight-medium: 500;
+@font-weight-bold: 700;
+
+@primary-color:                   #4CAF50;//500
+@primary-color-dark:              #388E3C;//700
+@primary-color-light:             #A5D6A7;//200
+
+@gray-divider:                    #dadada;//12%
+@gray-disabled:                   #b8b8b8;//26%
+@gray-secondary:                  #727272;//54%
+@gray-text:                       #212121;//87%
+
+@brand-primary: @primary-color;
+
+@headings-font-weight: @font-weight-regular;
+
+
+//general stuff ==================================================================
+
+body{
+  margin-top: 138px;
+  font-family: @font-family-sans-serif;
+  color: @gray-text;
+  background-color: #ececec;
+}
+
+
+//NavBar ==================================================================
+
+@navbar-height:                             56px;
+
+.navbar {
+  background-color: @primary-color;
+  
+  h1 {
+    font-size: 20px;
+    font-weight: @font-weight-medium;
+    color: white;
+    line-height: 55px;
+    margin: 0 32px;
+  }
+}
+
+//NameBar ==================================================================
+
+.namebar {
+  position: absolute;
+  top: 56px;
+  height: 50px;
+  background-color: #fafafa;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.18);
+  
+  #name-field {
+    border: none;
+    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 32px;
+    margin-top: 9px;
+  }
+}
+
+
+//Card ==================================================================
+
+.card {
+  display: flex;
+  min-height: calc(~"100% - 14px");
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.18);
+  border-radius: 2px;
+  margin-top: 16px;
+  position: relative;
+  padding: 0;
+  
+  #messages {
+    padding: 24px 16px;
+  }
+  
+  .textbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 72px;
+    background-color: #f6f6f6;
+    border-top: 1px solid #e5e5e5;
+    width: 100%;
+  }
+}
