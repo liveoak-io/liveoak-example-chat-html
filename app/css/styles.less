@@ -30,11 +30,28 @@
 
 //general stuff ==================================================================
 
+html, body {
+  height: 100%;
+}
+
 body{
-  margin-top: 138px;
   font-family: @font-family-sans-serif;
   color: @gray-text;
   background-color: #ececec;
+  transition: margin 0.5s ease;
+}
+
+.input-full {
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+  -webkit-transition: background-color 0.5s; 
+
+  &:focus {
+    outline: none;
+    background-color: white;
+  }
 }
 
 
@@ -51,53 +68,140 @@ body{
     color: white;
     line-height: 55px;
     margin: 0 32px;
+    transition: margin 0.5s ease;
+    
+    @media (max-width: 640px) {
+      margin: 0 16px;
+    }
   }
 }
 
 //NameBar ==================================================================
 
 .namebar {
-  position: absolute;
+  position: fixed;
   top: 56px;
   height: 50px;
   background-color: #fafafa;
   width: 100%;
   box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.18);
+  z-index: 100;
   
   #name-field {
-    border: none;
+    .input-full;
     font-size: 16px;
-    height: 32px;
-    line-height: 32px;
-    margin-left: 32px;
-    margin-top: 9px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 32px;
+    transition: padding 0.5s ease, background-color 0.5s ease;
+    
+    @media (max-width: 640px) {
+      padding-left: 16px;
+    }
+    
+    &:focus {
+      outline: none;
+      background-color: white;
+    }
   }
 }
 
 
 //Card ==================================================================
 
-.card {
+#input {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+.container {
   display: flex;
-  min-height: calc(~"100% - 14px");
+  width: 1200px;
+  transition: width 0.5s ease, margin 0.5s ease;
+  
+  @media (max-width: 1799px) {
+    width: 66%;
+  }
+  
+  @media (max-width: 1199px) {
+    width: 800px;
+  }
+  
+  @media (max-width: 863px) {
+    width: calc(~"100% - 64px");
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+  
+  @media (max-width: 640px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.card {
   background-color: white;
   box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.18);
   border-radius: 2px;
-  margin-top: 16px;
   position: relative;
   padding: 0;
+  padding-bottom: 9999px;
+  margin-bottom: -9999px;
   
   #messages {
-    padding: 24px 16px;
+    padding: 16px 16px 80px;
+    margin-top: 106px;
+    
+    .message {
+      margin-bottom: 16px;
+      line-height: 21px;
+      
+      .name {
+        font-weight: @font-weight-bold;
+      }
+      
+      .text {
+        color: @gray-secondary;
+      }
+    }
   }
   
   .textbar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    left: 0;
     height: 72px;
     background-color: #f6f6f6;
     border-top: 1px solid #e5e5e5;
-    width: 100%;
+    padding: 0;
+    left: calc(~"50% - 600px");
+    
+    @media (max-width: 1799px) {
+      left: 17%;
+    }
+    
+    @media (max-width: 1199px) {
+      left: calc(~"50% - 400px");
+    }
+    
+    @media (max-width: 863px) {
+      left: 0;
+    }
+    
+    @media (max-width: 640px) {
+      width: 100%;
+      margin: 0;
+    }
+    
+    #text-field {
+      .input-full;
+      height: 72px;
+      line-height: 72px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 }
