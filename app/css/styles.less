@@ -1,0 +1,208 @@
+/*!
+ * Based on Bootstrap v3.3.1
+ */
+
+// Core
+@import "../bootstrap/less/bootstrap.less";
+
+// Font
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic);
+
+@font-family-sans-serif: 'Roboto', sans-serif;
+
+@font-weight-regular: 400;
+@font-weight-medium: 500;
+@font-weight-bold: 700;
+
+@primary-color:                   #4CAF50;//500
+@primary-color-dark:              #388E3C;//700
+@primary-color-light:             #A5D6A7;//200
+
+@gray-divider:                    #dadada;//12%
+@gray-disabled:                   #b8b8b8;//26%
+@gray-secondary:                  #727272;//54%
+@gray-text:                       #212121;//87%
+
+@brand-primary: @primary-color;
+
+@headings-font-weight: @font-weight-regular;
+
+
+//general stuff ==================================================================
+
+html, body {
+  height: 100%;
+}
+
+body{
+  font-family: @font-family-sans-serif;
+  color: @gray-text;
+  background-color: #ececec;
+  transition: margin 0.5s ease;
+}
+
+.input-full {
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+  -webkit-transition: background-color 0.5s; 
+
+  &:focus {
+    outline: none;
+    background-color: white;
+  }
+}
+
+
+//NavBar ==================================================================
+
+@navbar-height:                             56px;
+
+.navbar {
+  background-color: @primary-color;
+  
+  h1 {
+    font-size: 20px;
+    font-weight: @font-weight-medium;
+    color: white;
+    line-height: 55px;
+    margin: 0 32px;
+    transition: margin 0.5s ease;
+    
+    @media (max-width: 640px) {
+      margin: 0 16px;
+    }
+  }
+}
+
+//NameBar ==================================================================
+
+.namebar {
+  position: fixed;
+  top: 56px;
+  height: 50px;
+  background-color: #fafafa;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.18);
+  z-index: 1020;
+  
+  #name-field {
+    .input-full;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 32px;
+    transition: padding 0.5s ease, background-color 0.5s ease;
+    
+    @media (max-width: 640px) {
+      padding-left: 16px;
+    }
+    
+    &:focus {
+      outline: none;
+      background-color: white;
+    }
+  }
+}
+
+
+//Card ==================================================================
+
+#input {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+.container {
+  display: flex;
+  width: 1200px;
+  transition: width 0.5s ease, margin 0.5s ease;
+  
+  @media (max-width: 1799px) {
+    width: 66%;
+  }
+  
+  @media (max-width: 1199px) {
+    width: 800px;
+  }
+  
+  @media (max-width: 863px) {
+    width: calc(~"100% - 64px");
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+  
+  @media (max-width: 640px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.18);
+  border-radius: 2px;
+  position: relative;
+  padding: 0;
+  padding-bottom: 9999px;
+  margin-bottom: -9999px;
+  z-index: 1000;
+  
+  #messages {
+    padding: 16px 16px 80px;
+    margin-top: 106px;
+    
+    .message {
+      margin-bottom: 16px;
+      line-height: 21px;
+      
+      .name {
+        font-weight: @font-weight-bold;
+      }
+      
+      .text {
+        color: @gray-secondary;
+      }
+    }
+  }
+  
+  .textbar {
+    position: fixed;
+    bottom: 0;
+    height: 72px;
+    background-color: #f6f6f6;
+    border-top: 1px solid #e5e5e5;
+    padding: 0;
+    left: calc(~"50% - 600px");
+    
+    @media (max-width: 1799px) {
+      left: 17%;
+    }
+    
+    @media (max-width: 1199px) {
+      left: calc(~"50% - 400px");
+    }
+    
+    @media (max-width: 863px) {
+      left: 0;
+    }
+    
+    @media (max-width: 640px) {
+      width: 100%;
+      margin: 0;
+    }
+    
+    #text-field {
+      .input-full;
+      height: 72px;
+      line-height: 21px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}

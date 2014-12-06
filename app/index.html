@@ -1,47 +1,68 @@
 <html>
   <head>
-    <title>LiveOak Example</title>
+    <title>LiveOak Chat HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">  	
+    <meta charset="utf-8">
+  	<!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="/chat-html/app/css/styles.css" rel="stylesheet" media="screen">
+
+
+    
+    <link rel="shortcut icon" href="/chat-html/app/imgs/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/chat-html/app/imgs/favicon.ico" type="image/x-icon">
+  	
     <script src="/chat-html/client/liveoak.js" type="text/javascript"></script>
     <script src="/chat-html/app/jquery.js" type="text/javascript"></script>
     <script src="/chat-html/app/chat.js" type="text/javascript"></script>
-
-    <style> 
-      body {
-        font-family: helvetica;
-      }
-      #messages {
-        max-height: 10em;
-        overflow: scroll;
-      }
-      .message {
-        clear: both;
-      }
-      .message .name {
-        width: 12em;
-        float: left;
-      }
-    </style> 
   </head>
 
   <body>
-    <h1>Chat Example</h1>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+      <h1>LiveOak Chat HTML</h1>
+    </nav>
 
     <div id="input">
       <form>
-        <div>
-          <label>Your name</label>
-          <input type="text" name="name" id="name-field"/>
-        </div>
-        <div id="messages">
-        </div>
+        <div class="namebar">
+          <input type="text" name="name" id="name-field" placeholder="Your name">
+        </div><!-- /.namebar -->
+        
+        <div class="card container">
 
-        <div>
-          <label>Your message</label>
-          <input type="text" name="text" size="80" id="text-field"/>
-          <input type="submit" value="Send"/>
-        </div>
+          <!-- Temporary, to test -->
+
+          <div id="messages">
+            
+            <!--
+<div class="message">
+              <div class="name">Garry</div>
+              <div class="text">Hi Anton. How are you doing?</div>
+            </div>
+            <div class="message">
+              <div class="name">Anton</div>
+              <div class="text">I’m fine, thanks. How are you?</div>
+            </div>
+            <div class="message">
+              <div class="name">Garry</div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id tellus auctor, tempor nibh a, scelerisque turpis. Etiam at convallis tellus. Sed lacinia urna velit, et rhoncus urna sodales eget. Quisque mi massa, ultrices ac eros at, sagittis auctor ex. </div>
+            </div>
+            <div class="message">
+              <div class="name">Anton</div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id tellus auctor, tempor nibh a, scelerisque turpis. Etiam at convallis tellus. Sed lacinia urna velit, et rhoncus urna sodales eget. Quisque mi massa, ultrices ac eros at, sagittis auctor ex. </div>
+            </div>
+-->
+            
+          </div><!-- /#messages -->
+
+          <div class="textbar container">
+            <input type="text" name="text" id="text-field" placeholder="Send a message...">
+<!--             <input type="submit" value="Send"/> -->
+          </div><!-- /.textbar -->
+        </div><!-- /.card -->
+        
       </form>
-    </div>
+    </div><!-- /#input -->
 
   </body>
 </html>

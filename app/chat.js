@@ -53,7 +53,14 @@ $( function() {
       }
     } );
   } );
-  
+
+  $('#input').keypress(function(e) {
+    if (e.which == 13) {
+      $('#input form').submit();
+      return false;
+    }
+  });  
+
   $('#input form').submit( function() {
     var name = $( '#name-field' ).val();
     var text = $( '#text-field' ).val();
