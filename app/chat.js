@@ -7,11 +7,11 @@ $( function() {
     $( '#welcome').hide();
     $( '#messages' ).append( 
       $( '<div class="message clearfix" id="' + get_id( data ) + '">' ).append( 
-        $('<span class="badge badge-primary pull-left" style="background-color:' + colors[get_color(data.name)] + '">').append( data.name[0] ) ).append(
+        $('<span class="badge badge-primary pull-left" style="background-color:' + get_color(data.name) + '">').append( data.name[0] ) ).append(
         $('<div class="name-text pull-left">').append( 
           $('<div class="name">').append( data.name ) ).append( 
           $('<div class="text">').append( data.text ) ) ) );
-    $( '#messages' ).scrollTop( $('#messages')[0].scrollHeight );
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   function remove_message(data) {
@@ -46,10 +46,13 @@ $( function() {
   }
 
   function get_color(name) {
-    return (Math.abs(hash(name)) % colors.length);
+    var idx = Math.abs(hash(name)) % colors.length;
+    var color = colors[idx]
+    colors.splice(idx, 1);
+    return color;
   }
 
-  var colors = ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#CDDC39','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B','#000000'];
+  var colors = ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B','#000000'];
 
   liveoak.connect( function() {
     liveoak.create( '/chat-html/storage', { id: 'chat' }, {
