@@ -6,10 +6,11 @@ $( function() {
   function add_message(data) {
     $( '#welcome').hide();
     $( '#messages' ).append( 
-      $( '<div class="message" id="' + get_id( data ) + '">' ).append( 
-        $('<span class="badge badge-primary pull-left" style="font-size: 2.5em; margin-right: 10px; background-color:' + colors[get_color(data.name)] + '">').append( data.name[0] ) ).append( 
-        $('<div class="name">').append( data.name ) ).append( 
-        $('<div class="text">').append( data.text ) ) );
+      $( '<div class="message clearfix" id="' + get_id( data ) + '">' ).append( 
+        $('<span class="badge badge-primary pull-left" style="background-color:' + colors[get_color(data.name)] + '">').append( data.name[0] ) ).append(
+        $('<div class="name-text pull-left">').append( 
+          $('<div class="name">').append( data.name ) ).append( 
+          $('<div class="text">').append( data.text ) ) ) );
     $( '#messages' ).scrollTop( $('#messages')[0].scrollHeight );
   }
 
