@@ -8,19 +8,24 @@
         "directory" : "${application.dir}/app/"
       }
     },
-
     "client" : {
       "type" : "aggregating-filesystem",
       "config" : {
         "directory" : "${io.liveoak.js.dir}"
       }
     },
-
     "storage" : {
       "type" : "mongo",
       "config" : {
         "db" : "chat-demo"
       }
+    },
+    "git" : {
+      "type" : "git",
+      "config" : { }
     }
-  }
+  },
+  "name" : "chat-html",
+  "visible" : true,
+  "version-resource-id" : "git"
 }
