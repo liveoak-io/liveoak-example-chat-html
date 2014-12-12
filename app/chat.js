@@ -46,13 +46,24 @@ $( function() {
   }
 
   function get_color(name) {
-    var idx = Math.abs(hash(name)) % colors.length;
-    var color = colors[idx]
-    colors.splice(idx, 1);
-    return color;
+    if (usedColors[name]) {
+      return usedColors[name];
+    }
+    else {
+      if (colors.length === 0) {
+        colors = colorsBackup.slice(0);
+      }
+      var idx = Math.abs(hash(name)) % colors.length;
+      var color = colors[idx]
+      usedColors[name] = color;
+      colors.splice(idx, 1);
+      return color;
+    }
   }
 
   var colors = ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B','#000000'];
+  var colorsBackup = colors.slice(0);
+  var usedColors = {};
 
   liveoak.connect( function() {
     liveoak.create( '/chat-html/storage', { id: 'chat' }, {
@@ -90,6 +101,8 @@ $( function() {
   $('#input form').submit( function() {
     var name = $( '#name-field' ).val();
     var text = $( '#text-field' ).val();
+
+    if (!name || !text) return false;
 
     $('#text-field').val( '' );
 
