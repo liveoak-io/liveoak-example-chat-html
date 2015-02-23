@@ -14,6 +14,8 @@ $( function() {
     window.scrollTo(0, document.body.scrollHeight);
   }
 
+  var app = liveoak.app();
+
   function remove_message(data) {
     $( '#' + get_id( data ) ).remove();
     if ($( '.message' ).length === 0) {
@@ -66,9 +68,9 @@ $( function() {
   var usedColors = {};
 
   liveoak.connect( function() {
-    liveoak.create( '/chat-html/storage', { id: 'chat' }, {
+    app.create( '/storage', { id: 'chat' }, {
       success: function(data) {
-        liveoak.subscribe( '/chat-html/storage/chat/*', function(data, action) {
+        app.subscribe( '/storage/chat/*', function(data, action) {
           if (action == 'create') {
             add_message( data );
           } else if (action == 'update') {
@@ -77,7 +79,7 @@ $( function() {
             remove_message( data );
           }
         } );
-        liveoak.read( '/chat-html/storage/chat?fields=*(*)', {
+        app.read( '/storage/chat?fields=*(*)', {
           success: function(data) {
             $(data.members).each( function(i, e) {
               add_message( e );
@@ -106,7 +108,7 @@ $( function() {
 
     $('#text-field').val( '' );
 
-    liveoak.create( '/chat-html/storage/chat',
+    app.create( '/storage/chat',
                     { name: name, text: text },
                     { success: function(data) { 
                         console.log( "sent" ); 

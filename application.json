@@ -1,6 +1,8 @@
 {
   "html-app" : "/app/index.html",
   "example" : "chat-html",
+  "name" : "${application.id}",
+  "configuration-files" : ["app/index.html"],
   "resources" : {
     "app" : {
       "type" : "filesystem",
@@ -19,7 +21,7 @@
     "storage" : {
       "type" : "mongo",
       "config" : {
-        "db" : "chat-demo"
+        "db" : "${application.id}"
       }
     }
   }
